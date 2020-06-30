@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>v-on</title>
+</head>
+<body>
+<div id="app">
+	<button v-on:click="counter +=1">Counter</button>
+	<button v-on:click="counter -=1">Kurangi</button>
+	<p>button di atas diklik sebanyak {{counter}} kali</p>
+
+	<button v-on:click="info('selamat datang')">informasi</button>
+	<a href="https://vuejs.org" v-on:click.prefent="info('go to link')">vue.js</a>
+	<button v-on:click.ctrl.exact="info('halo')">exact</button>
+</div>
+<script src="lib/vue.js"></script>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			counter:0
+		},
+		methods:{
+			info(text){
+				alert(text)
+			}
+		}
+	})
+</script>
+</body>
+</html>

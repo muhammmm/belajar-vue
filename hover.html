@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>hover</title>
+</head>
+<body>
+<div id="app">
+<img v-bind:src="urlgambar" :class="classnya">
+	<button v-on:click="ganti_gambar('images/hijau.jpg.png')" >hijau</button>
+	<button v-on:click="ganti_gambar('images/merah.jpg.png')">merah</button>
+</div>
+<script src="lib/vue.js"></script>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			urlgambar:"",
+			classnya:'bordered'
+		},
+		methods:{
+			ganti_gambar(url){
+				this.urlgambar=url
+			}
+		}
+	})
+</script>
+<style>
+	.bordered{
+		border:10px solid black;
+	}
+</style>
+</body>
+</html>

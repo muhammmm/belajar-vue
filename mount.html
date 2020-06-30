@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>mount</title>
+</head>
+<body>
+<div id="app">
+	<h1>{{message}}</h1>
+</div>
+<script type="text/javascript" src="lib/vue.js"></script>
+<script type="text/javascript">
+	var vm = new Vue({     
+		el: '#app',     
+		data: {         
+			message: 'Hello world!',     
+		},     
+		beforeMount() {     
+			console.log('before mount: '+     
+				'el = ' + this.$el.textContent) 
+		}, 
+		mounted() {     
+			console.log('mounted: '+     
+				'el = ' + this.$el.textContent) 
+		}, 
+	}); 
+</script>
+</body>
+</html>

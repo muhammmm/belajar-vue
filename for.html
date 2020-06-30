@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>v-for</title>
+</head>
+<body>
+<div id="app">
+	<ul>
+		<template v-for="book in books"><li>{{book}}</li></template>
+		<br>
+		<template v-for="(book,index) in books"><li>{{index+1}}. {{book}}</li></template>
+		<br>
+		<template v-for="value of book"><li>{{value}}</li></template>
+		<br>
+		<template v-for="(value, key) of book"><li>{{key}}: {{value}}</li></template>
+		<br>
+		<template v-for="(value,key,index) of book"><li>{{index+1}}. {{key}}: {{value}}</li></template>
+	</ul>
+	<ol>
+		<template v-for="(value,key) of book"><li>{{key}}: {{value}}</li></template>
+	</ol>
+</div>
+<script src="lib/vue.js"></script>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			 books : [             
+			 'C++ High Performance',              
+			 'Mastering Linux Security and Hardening',              
+			 'Python Programming Blueprints',              
+			 'Mastering PostgreSQL 10'         
+			 ],
+
+			book: {     
+				id: 99,     
+				title: 'C++ High Performance',     
+				description: 'Write code that scales across CPU registers, multi-core, and machine clusters',     
+				authors: 'Viktor Sehr, Björn Andrist',     
+				publish_year: 2018,     
+				price: 100000, 
+			}
+		}
+	})
+</script>
+</body>
+</html>

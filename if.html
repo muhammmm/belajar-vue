@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>v-if</title>
+</head>
+<body>
+<div id="app">
+	<div v-if="nilai === 'A'">Sempurna</div>
+	<div v-else-if="nilai === 'B'">Bagus</div>
+	<div v-else-if="nilai === 'C'">Cukup</div>
+	<div v-else>Kurang</div>
+</div>
+<script src="lib/vue.js"></script>
+<script type="text/javascript">
+	var vm = new Vue({
+		el: '#app',
+		data:{
+			nilai:"B",
+		},
+	})
+</script>
+</body>
+</html>

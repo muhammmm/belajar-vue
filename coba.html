@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>filters computed method</title>
+</head>
+<body>
+<div id="app">
+	<!--filters-->
+	<h1>Filters: {{message | upper}}</h1>
+
+	<!-- methods --> 
+	<h1>Methods: {{ upper(message) }}</h1> 
+ 
+	<!-- computed --> 
+	<h1>Computed: {{ messageUpperCase }}</h1> 
+</div>
+<script src="lib/vue.js"></script>
+<script type="text/javascript">
+	var vm = new Vue({
+		el: '#app',
+		data:{
+			message: 'Hello World!',
+		},
+		filters:{
+			upper (text){
+				return text.toUpperCase()
+			}
+		},
+		methods:{
+			upper (text){
+				return text.toUpperCase()
+			}
+		},
+		computed:{
+			messageUpperCase (){
+				return this.message.toUpperCase()
+			}
+		}
+	})
+</script>
+</body>
+</html>

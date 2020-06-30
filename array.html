@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        Hobbi <br>
+        <input type="checkbox" name="hobby1" value="nonton" v-model="hobbies">
+        <label for="hobbi1">Nonton</label>
+        <input type="checkbox" name="hobby2" value="jalan" v-model="hobbies">
+        <label for="hobby2">Jalan</label>
+        <input type="checkbox" name="hobby3" value="makan" v-model="hobbies">
+        <label for="hobby3">Makan</label>
+        <br>
+        <span>pilihan hobby: {{hobbies}}</span>
+        <hr>
+        <select v-model="categories" multiple>
+            <option value="01">Graphics Programming</option>
+            <option value="02">Mobile Application Development</option>
+            <option value="03">Virtual and Augmented Reality</option>
+        </select>
+        <span>selected: {{categories}}</span>
+    </div>
+    <script src="lib/vue.js"></script>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                hobbies:[],
+                categories:[]
+            }
+        })
+    </script>
+</body>
+</html>

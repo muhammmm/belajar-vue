@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <form>
+            <input type="number" name="price" v-model.number="price">
+            <br><br>
+            <input type="text" name="title" v-model.title="title" placeholder="masukkan judul">
+            {{title}}
+
+            <br><br>
+            <input type="radio" name="bukuA" value="A" v-model="paket">
+            <label for="bukuA">laravel</label><br>
+            <input type="radio" name="bukuB" value="B" v-model="paket">
+            <label for="bukuB">vuejs</label><br>
+            <input type="radio" name="bukuAB" value="AB" v-model="paket">
+            <label for="bukuAB">laravel + vuejs</label><br>
+            <span>pilihan paket: {{paket}}</span>
+
+            <br><br>
+            <select name="category" v-model="category">
+                <option disabled value="">Please Selet One</option>
+                <option value="01">Graphics Programming</option>
+                <option value="02">Mobile Application Development</option>
+                <option value="03">Virtual and Augmented Reality</option>
+            </select>
+            <span>selected: {{category}}</span>
+        </form>
+    </div>
+    <script src="lib/vue.js"></script>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                title:"",
+                price:"",
+                paket:"",
+                category:""
+            }
+        })
+    </script>
+</body>
+</html>

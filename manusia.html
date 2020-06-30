@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <man
+            v-for="man in manusia"
+            :man="man">
+        </man>
+    </div>
+    <script src="lib/vue.js"></script>
+    <script>
+        var ManusiaComponent={
+            data(){
+                return {
+                    classcard:'card'
+                }
+            },
+            props:['man'],
+            template:`
+                <div :class="classcard">
+                    <img :src="'images/'+man.poto" style="width:100%">
+                   <h3> nama : {{man.nama}} </h3>
+                   <h3> pekerjaan : {{man.pekerjaan}} </h3>
+                </div>`
+        }
+        var vm = new Vue({
+            el:'#app',
+            components:{
+                'man':ManusiaComponent
+            },
+            data:{
+                manusia:[
+                    {
+                        nama:'cahyadi',
+                        pekerjaan:'teknisi',
+                        poto:'cahyadi.jpg'
+                    },
+                    {
+                        nama:'hamdan',
+                        pekerjaan:'guru',
+                        poto:'hamdan.jpg'
+                    },
+                    {
+                        nama:'supono',
+                        pekerjaan:'freelancer',
+                        poto:'supono.png'
+                    }
+                ]
+            }
+        })
+    </script>
+</body>
+<style>
+    .card {     
+        background: #efefef;     
+        border:1px solid #ddd;     
+        margin-right:5px;     
+        padding:5px;     
+        width: 225px;     
+        float:left; 
+    } 
+</style>
+</html>

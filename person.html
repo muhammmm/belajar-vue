@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <user 
+            v-for="user in users"
+            :user="user"
+            @selected="selectedUser=$event">
+        </user>
+        <form class="tambah" @submit.prevent="submitForm($event)">
+            <h3>Form Tambah Data</h3>
+            <label for="nama">Nama : </label><br>
+            <input type="text" name="nama" v-model="nama" placeholder="masukkan nama" style="width:195px;"><br><br>
+            <label for="pekerjaan">Pekerjaan : </label><br>
+            <input type="text" name="pekerjaan" v-model="pekerjaan" placeholder="masukkan pekerjaan" style="width:195px;"><br><br>
+            <label for="biografi">Biografi : </label><br>
+            <input type="text" name="biografi" v-model="biografi" placeholder="masukkan biografi" style="width:195px;"><br><br>
+            <label for="poto">Foto</label><br>
+            <input type="text"name="poto" v-model="poto" placeholder="masukkan nama file berformat" style="width:195px;"><br><br>
+
+            <input type="submit" value="submit">
+        </form>
+        <h1>Biogarafi : <br>{{ selectedUser }}</h1>
+    </div>
+    <script src="lib/vue.js"></script>
+    <script>
+        var UserComponent ={
+            data(){
+                return {
+                    ClassCard:'card'
+                }
+            },
+            props :['user'],
+            template:`
+            <div :class="ClassCard">
+                <img :src="'images/'+user.poto" style="width:100%"> 
+                <h3>nama : {{user.nama}}</h3> 
+                <h3>pekerjaan : {{user.pekerjaan}}</h3>
+
+                <button @click="$emit('selected', user.biografi)"> Select </button>
+            </div>`
+        }
+        var vm = new Vue({
+            el:'#app',
+            components:{
+                'user':UserComponent
+            },
+            data:{
+                nama:'',
+                pekerjaan:'',
+                biografi:'',
+                poto:'',
+                selectedUser:'',
+                users:[
+                    {
+                        nama :"cahyadi",
+                        pekerjaan:"teknisi",
+                        biografi:"namanya cahyadi, pekerjaannya sebagai teknisi",
+                        poto:"cahyadi.jpg"
+                    },
+                    {
+                        nama:"hamdan",
+                        pekerjaan:"guru",
+                        biografi:"namanya hamdan pekerjaanya sebagai guru",
+                        poto:"hamdan.jpg"
+                    },
+                    {
+                        nama:"supono",
+                        pekerjaan:"freelance",
+                        biografi:"namanya supono pekerjaannya sebagai freelancer",
+                        poto:"supono.png"
+                    }
+                ]
+            },
+            methods:{
+                submitForm(event){
+                    let databaru = {
+                        nama:this.nama,
+                        pekerjaan:this.pekerjaan,
+                        biografi:this.biografi,
+                        poto:this.poto
+                    }
+                    this.users.push(databaru)
+                },
+            }
+        })
+    </script>
+</body>
+    <style>
+        .card {     
+            background: #efefef;     
+            border:1px solid #ddd;     
+            margin-right:5px;     
+            padding:5px;     
+            width: 225px;     
+            float:left; 
+        } 
+        .tambah {     
+            background: #efefef;     
+            border:1px solid #ddd;     
+            margin-right:5px;     
+            padding:5px;     
+            width: 200px;     
+            float:left; 
+        } 
+    
+        h3{     
+            min-height: 45px; 
+        }
+
+        h1 {     
+            background: #efefef;     
+            border:1px solid #ddd;     
+            margin-right:5px;     
+            padding:5px;     
+            width: 710px;     
+            float:left;
+        }
+    </style>
+</html>

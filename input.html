@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <form>     
+            <input type="text" name="title" v-model="title" placeholder="masukkan judul">      
+                {{ title }}     
+            <br><br>     
+            <textarea name="description" v-model="description" placeholder="masukkan deskripsi"></textarea>      
+                {{ description }} 
+            </form> 
+    </div>
+    <script src="lib/vue.js"></script>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                title:"",
+                description:""
+            },
+        });
+    </script>
+</body>
+</html>

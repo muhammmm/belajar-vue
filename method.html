@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>method</title>
+</head>
+<body>
+<div id="app">
+<h1>{{counter}}</h1>
+<button onclick="vm.increment()"> + </button>
+</div>
+<script src="lib/vue.js"></script>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			counter:0
+		},
+		methods:{
+			increment () {
+				this.counter++
+			}
+		}
+	})
+</script>
+</body>
+</html>
